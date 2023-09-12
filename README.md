@@ -221,7 +221,7 @@ The Tableau dashboard is connected to the MongoDB using ODBC drivers. It fetches
 
 | Field     | Type        |
 |-----------|-------------|
-| timestamp | timeseries  |
+| timestamp | ISODatetime |
 | open      | float       |
 | high      | float       |
 | low       | float       |
