@@ -2,10 +2,11 @@ from confluent_kafka import Consumer, KafkaError
 from pymongo import MongoClient
 import datetime
 import json
+import pytz
 
 class StockDataConsumer:
     _KAFKA_TOPIC = "stock-market-data"
-    _MONGODB_HOST = "192.168.1.3"
+    _MONGODB_HOST = "localhost"
     _MONGODB_PORT = 27017
     _MONGODB_DB = "stock-market-data"
     _MONGODB_COLLECTION = "nifty50"
@@ -44,22 +45,24 @@ class StockDataConsumer:
 
     def _process_message(self, msg):
         key = msg.key().decode('utf-8')
-        value = json.loads(msg.value().decode('utf-8'))
+        value = json.loads(msg.value().decode('utf-8'), parse_float=float)
 
         timestamp_str = value.get("timestamp")
-        timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S.%f")
+        date_string_with_utc = timestamp_str[:-1] + '+00:00'
+        timestamp = datetime.datetime.fromisoformat(date_string_with_utc).replace(tzinfo=pytz.utc)
 
         try:
             insert_status = self._nifty50.insert_one({
                 "timestamp": timestamp,
-                "open": value.get("open"),
-                "high": value.get("high"),
-                "low": value.get("low"),
-                "close": value.get("close")
+                "open": float(value.get("Open")),
+                "high": float(value.get("High")),
+                "low": float(value.get("Low")),
+                "close": float(value.get("Close"))
             })
 
             if insert_status.acknowledged:
                 print(f"{key} : {value} -> Inserted")
+                pass
             else:
                 print(f"{key} : {value} -> Insertion failed")
 
@@ -71,7 +74,7 @@ def main():
     config = {
         "bootstrap.servers": "localhost:9092",
         "group.id": "console-consumer-81883",
-        "auto.offset.reset": "latest"
+        "auto.offset.reset": "earliest"
     }
     stock_consumer = StockDataConsumer(config)
     stock_consumer.consume_messages()
