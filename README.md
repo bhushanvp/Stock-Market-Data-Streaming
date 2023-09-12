@@ -32,6 +32,12 @@ The project is organized into two main directories: `client` and `server`, each 
 
 <hr>
 
+## Project Workflow
+
+1. Server streams real-time stock market data.
+2. Producer fetches and publishes data to Kafka.
+3. Consumer subscribes, processes, and stores data in MongoDB.
+
 ## Server
 
 The Server consists of the following files:
@@ -104,6 +110,7 @@ The Consumer consists of the following files:
 - `pytz`: Used for handling time zones.
 
 #### Setup
+**_NOTE:_** : Make sure you are in the correct directory (client/)
 
 ```bash
 pip install -r requirements.txt
@@ -139,8 +146,10 @@ pip install -r requirements.txt
 
 To run the consumer, execute the `consumer.py` script. It will start consuming messages from the Kafka topic and insert them into the MongoDB database.
 
+**_NOTE:_** : Make sure you are in the correct directory (client/)
+
 ```bash
-python consumer.py
+python ./consumer/consumer.py
 ```
 
 ### Producer
@@ -156,6 +165,7 @@ The project consists of the following files:
 - `requests`: Used for making HTTP requests to the external data source.
 
 #### Setup
+**_NOTE:_** : Make sure you are in the correct directory (client/)
 
 ```bash
 pip install -r requirements.txt
@@ -191,7 +201,9 @@ pip install -r requirements.txt
 
 To run the producer, execute the `producer.py` script. It will continuously fetch stock market data and publish it to the Kafka topic.
 
+**_NOTE:_** : Make sure you are in the correct directory (client/)
+
 ```bash
-python producer.py
+python ./producer/producer.py
 ```
 <hr>
