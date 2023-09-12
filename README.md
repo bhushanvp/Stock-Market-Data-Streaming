@@ -1,5 +1,4 @@
-# Stock Market Data Stream Warehousing and Visualization (Simulation)
-
+# Realtime Stock Market Data Warehousing and Visualization
 
 ## Project Structure
 
