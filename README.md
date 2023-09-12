@@ -212,6 +212,6 @@ python ./producer/producer.py
 
 ## Tableau Visualization
 
-The Tableau dashboard is connected to the MongoDB using ODBC drivers. It fetches real-timedata and visualizes in the form of candle-sticks.
+The Tableau dashboard is connected to the MongoDB using ODBC drivers. It fetches real-time data and visualizes in the form of candle-sticks.
 
 <hr>
