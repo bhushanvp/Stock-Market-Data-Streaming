@@ -36,6 +36,7 @@ The project is organized into two main directories: `client` and `server`, each 
 1. Server streams real-time stock market data.
 2. Producer fetches and publishes data to Kafka.
 3. Consumer subscribes, processes, and stores data in MongoDB.
+4. Tableau connects to MongoDB in real-time to visualize the data.
 
 <hr>
 
@@ -207,4 +208,10 @@ To run the producer, execute the `producer.py` script. It will continuously fetc
 ```bash
 python ./producer/producer.py
 ```
+<hr>
+
+## Tableau Visualization
+
+The Tableau dashboard is connected to the MongoDB using ODBC drivers. It fetches real-timedata and visualizes in the form of candle-sticks.
+
 <hr>
