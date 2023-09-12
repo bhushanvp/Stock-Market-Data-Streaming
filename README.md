@@ -38,6 +38,8 @@ The project is organized into two main directories: `client` and `server`, each 
 2. Producer fetches and publishes data to Kafka.
 3. Consumer subscribes, processes, and stores data in MongoDB.
 
+<hr>
+
 ## Server
 
 The Server consists of the following files:
