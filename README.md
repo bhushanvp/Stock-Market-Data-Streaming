@@ -226,3 +226,5 @@ The Tableau dashboard is connected to the MongoDB using ODBC drivers. It fetches
 | high      | float       |
 | low       | float       |
 | close     | float       |
+
+<hr>
