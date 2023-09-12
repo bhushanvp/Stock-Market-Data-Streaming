@@ -103,6 +103,12 @@ The Consumer consists of the following files:
 - `json`: Required for parsing JSON data received from Kafka messages.
 - `pytz`: Used for handling time zones.
 
+#### Setup
+
+```bash
+pip install -r requirements.txt
+```
+
 #### Consumer Workflow
 
 1. The consumer initializes by creating a Kafka consumer instance and a connection to the MongoDB database.
@@ -148,6 +154,12 @@ The project consists of the following files:
 
 - `confluent_kafka`: This library is used to interact with Kafka and produce messages to the Kafka topic.
 - `requests`: Used for making HTTP requests to the external data source.
+
+#### Setup
+
+```bash
+pip install -r requirements.txt
+```
 
 #### Producer Workflow
 
