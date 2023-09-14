@@ -151,7 +151,7 @@ To run the consumer, execute the `consumer.py` script. It will start consuming m
 **_NOTE:_** : Make sure you are in the correct directory (client/)
 
 ```bash
-python ./consumer/consumer.py
+python3 ./consumer/consumer.py
 ```
 
 ### Producer
@@ -206,7 +206,7 @@ To run the producer, execute the `producer.py` script. It will continuously fetc
 **_NOTE:_** : Make sure you are in the correct directory (client/)
 
 ```bash
-python ./producer/producer.py
+python3 ./producer/producer.py
 ```
 <hr>
 
